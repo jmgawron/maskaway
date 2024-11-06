@@ -12,7 +12,7 @@ Here’s an improved version of your description:
 In the first phase, script analyze all the IPs and MAC addresses in the provided log or debug output and build a mapping between the real values and their replacements.
 
 Example:
-```
+```bash
 python maskaway.py -analyze -input showtech.txt
 swap.map has been created with artificial addresses.
 ```
@@ -25,7 +25,7 @@ As a result, the user receives a `swap.map` file, which contains a mapping of th
 In the second phase, the script sanitize the original input text file by applying the mapping dictionary to replace the real values with the artificial ones.
 
 Example:
-```
+```bash
 python maskaway.py -sanitize -dictionary swap.map -input showtech.txt
 showtech_TG-HVS-A3-EDG01.txt.modified has been created with sanitized addresses.
 ```
