@@ -3,10 +3,6 @@ The purpose of this script is to help protect critical information in logs and d
 
 # usage
 
-Script is execured in two phases 
-Here’s an improved version of your description:
-
-
 **Phase One: Analysis and Mapping Creation**
 
 In the first phase, script analyze all the IPs and MAC addresses in the provided log or debug output and build a mapping between the real values and their replacements.
@@ -27,6 +23,9 @@ In the second phase, the script sanitize the original input text file by applyin
 Example:
 ```bash
 python maskaway.py -sanitize -dictionary swap.map -input showtech.txt
-showtech_TG-HVS-A3-EDG01.txt.modified has been created with sanitized addresses.
+showtech.txt.modified has been created with sanitized addresses.
 ```
 The modified version of the input file is saved with the same name, but with the `.modified` extension.
+
+
+
