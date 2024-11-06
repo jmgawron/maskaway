@@ -36,8 +36,8 @@ def analyze_files(input_files):
             ipv4_addresses = re.findall(IPV4_REGEX, content)
             ipv6_addresses = re.findall(IPV6_REGEX, content)
 
-            # Filter valid IPv4 addresses
-            ipv4_addresses = [ip for ip in ipv4_addresses if all(0 <= int(octet) < 256 for octet in ip.split('.'))]
+            # Filter valid IPv4 addresses, excluding 0.0.0.0
+            ipv4_addresses = [ip for ip in ipv4_addresses if ip != "0.0.0.0" and all(0 <= int(octet) < 256 for octet in ip.split('.'))]
 
             # Store unique MACs and IPs
             for mac in mac_addresses:
@@ -72,9 +72,10 @@ def sanitize_files(input_files, dictionary_file):
         with open(filename, 'r') as file:
             content = file.read()
 
-        # Replace each original address with its replacement
+        # Replace each original address with its replacement, except for 0.0.0.0
         for original, replacement in replacement_dict.items():
-            content = content.replace(original, replacement)
+            if original != "0.0.0.0":  # Ensure 0.0.0.0 is not replaced
+                content = content.replace(original, replacement)
 
         # Write the modified content to a new file
         modified_filename = f"{filename}.modified"
