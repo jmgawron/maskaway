@@ -1,7 +1,7 @@
 # maskaway
 The purpose of this script is to help protect critical information in logs and debug outputs by hiding the real values of IPs and MAC addresses. It is designed to support troubleshooting processes in environments where preserving the confidentiality of original MAC and IP addresses is essential. The script replaces the actual values with artificial ones, maintaining the correlation in the replacement process to ensure consistency.
 
-# usage
+# usage:
 
 **Phase One: Analysis and Mapping Creation**
 
@@ -29,7 +29,7 @@ The modified version of the input file is saved with the same name, but with the
 
 
 
-# Additional Considerations:
+# additional considerations:
 
 - The script detects MAC addresses, IPv4, and IPv6 addresses.
 - Supported MAC address formats include both `xxxx.xxxx.xxxx` and `xx:xx:xx:xx:xx:xx`.
